@@ -39,7 +39,7 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
         if(directReports != null) {
             numberOfReports = directReports.size();
             for (Employee emp : directReports) {
-                // call api get the number of directReports
+
                 Employee employee1 = employeeRepository.findByEmployeeId(emp.getEmployeeId());
                 List<Employee> directReports1 = employee1.getDirectReports();
                 if (directReports1 != null) {
