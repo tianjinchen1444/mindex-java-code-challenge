@@ -1,6 +1,7 @@
 package com.mindex.challenge.data;
-
 import java.util.Date;
+
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Compensation {
@@ -8,8 +9,14 @@ public class Compensation {
     private Employee employee;
     @JsonFormat(pattern = "yyyy/MM/dd")
     private Date effectiveDate;
-
+    private String employeeId;
     public Compensation() {
+    }
+
+
+    public String getEmployeeId() {return employeeId;}
+    public void setEmployeeId(String employeeId) {
+       this.employeeId = employeeId;
     }
 
 
@@ -35,5 +42,7 @@ public class Compensation {
     public Date getEffectiveDate() {
         return this.effectiveDate;
     }
+
+
 
 }

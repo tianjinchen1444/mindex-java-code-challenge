@@ -31,19 +31,17 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
         ReportingStructure reportingStructure = new ReportingStructure(employee);
 
         int numberOfReports = 0;
-
-
         List<Employee> directReports = employee.getDirectReports();
 
         // check if the directReports  is not null
         if(directReports != null) {
             numberOfReports = directReports.size();
-            for (Employee emp : directReports) {
+            for (Employee employee_d : directReports) {
+                Employee employee_r = employeeRepository.findByEmployeeId(employee_d.getEmployeeId());
+                List<Employee> directReports_c = employee_r.getDirectReports();
 
-                Employee employee1 = employeeRepository.findByEmployeeId(emp.getEmployeeId());
-                List<Employee> directReports1 = employee1.getDirectReports();
-                if (directReports1 != null) {
-                    numberOfReports += directReports1.size();
+                if (directReports_c != null) {
+                    numberOfReports += directReports_c.size();
                 }
             }
         }
